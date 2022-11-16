@@ -1,4 +1,4 @@
-const {GraphQLNonNull, GraphQLString} = require('graphql')
+const { GraphQLNonNull, GraphQLString } = require('graphql')
 const Post = require('../../models/Post');
 const PostType = require('../queries/PostType');
 
@@ -22,7 +22,7 @@ const createPost = {
     const postModel = new Post(param);
     const savePost = await postModel.save();
     if (!savePost) {
-        throw new Error('Error')
+      throw new Error('Error')
     }
 
     return savePost;
@@ -63,7 +63,7 @@ const updatePost = {
       updatePost.body = param.body
     }
 
-    const updatePostInfo = await Post.findByIdAndUpdate(param._id,updatePost,{new: true});
+    const updatePostInfo = await Post.findByIdAndUpdate(param._id, updatePost, { new: true });
 
     if (!updatePostInfo) {
       throw new Error('Error');
@@ -83,7 +83,7 @@ const deletePost = {
   },
   resolve: async function (root, param) {
     const deletePost = await Post.findByIdAndRemove(param._id);
-    if(deletePost) {
+    if (deletePost) {
       throw new Error('Error');
     }
     return deletePost;

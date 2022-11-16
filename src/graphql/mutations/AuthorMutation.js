@@ -17,10 +17,11 @@ const addAuthor = {
   resolve: async function (root, params) {
     const uModel = new Author(params);
     const newAuthor = await uModel.save();
-    if(!newAuthor) {
-        throw new Error('Error')
+    if (!newAuthor) {
+      throw new Error('Error')
     }
-    return newAuthor
+
+    return newAuthor;
   }
 }
 
@@ -54,7 +55,7 @@ const updateAuthor = {
       throw new Error('Error')
     }
 
-    return uAuthor
+    return uAuthor;
   }
 }
 
@@ -71,7 +72,7 @@ const deleteAuthor = {
     if (!deleteAuthor) {
       throw new Error('Error');
     }
-    return deleteAuthor
+    return deleteAuthor;
   }
 }
 
