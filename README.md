@@ -1,0 +1,2 @@
+- run npm run seed to insert database
+- run npm start
